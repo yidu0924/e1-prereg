@@ -4,7 +4,7 @@
 用途：chain3 预注册 §1 要求在第 1 期之前把冻结文本放到公开、服务器端带时间戳的地方（首选 OSF 注册并 embargo，其次新建只放这些文件的公开 GitHub 仓库；不要用 yidu0924/genetic-autoresearch，见 review_27 §5）。
 
 ## 状态（生成时自动核对；发布前必须全部为"是"）
-- chain3 冻结哈希：18 条，全部匹配。
+- chain3 冻结哈希：19 条，全部匹配。
 - AMENDMENT_A1.md：已填写同意记录。
 - 第三预算 α 实验：已冻结（FREEZE_LOG_alpha.txt 存在）。
 - 缺失的文件：无。
@@ -18,6 +18,7 @@
 - `transfer/chain3/DESIGN.md`
 - `transfer/chain3/FREEZE_LOG_chain3.txt`
 - `transfer/chain3/AMENDMENT_A1.md`
+- `transfer/chain3/ADDENDUM_A2_h100strict.md`
 - `analysis/exchange_theory/PREREG_third_budget.md`
 - `analysis/exchange_theory/alpha_run/FREEZE_LOG_alpha.txt`
 - `analysis/exchange_theory/THEORY.md`
