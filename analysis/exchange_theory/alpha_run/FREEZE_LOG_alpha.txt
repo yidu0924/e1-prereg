@@ -1,0 +1,14 @@
+=== alpha FREEZE v0.4 (2026-11-02 America/Detroit; UTC 2026-11-03T01:10:46Z). PREREG_third_budget v0.4 (review_30 alpha-F1-F6/B1 and review_31 fixes applied); user consent 2026-11-02 (PREREG section 8; cap $15 stage+main, self-paid). Run index 7000-7026; Volume dir /vol/alpha, mirror /vol/cache_mirror_alpha; frozen runner transfer/hprime/run_transfer.py unchanged (same hash as in FREEZE_LOG_chain3.txt). Written BEFORE any alpha run: modal volume ls shows no /alpha, /cache_mirror_alpha (2026-11-02). Public timestamp with chain3 (candidate https://github.com/yidu0924/e1-prereg). ===
+11aadef79dd1221b69ee1ca34fbb146cafebf89ea58115010256942da232aa50  analysis/exchange_theory/PREREG_third_budget.md
+0ca8e1488847a4128c5044db1050a556a0392ab4c961d8f7845cae1dbf1d5eda  analysis/exchange_theory/alpha_run/make_manifest_alpha.py
+470195ae11a235cf15cfe36d3936ee6f4b667489eef20d5173c10077705e1a7e  analysis/exchange_theory/alpha_run/manifest_alpha.json
+5848b31990ed10ef091fd01ab5bb30d7b008f2de4001cdb013dd6e7075376267  analysis/exchange_theory/alpha_run/modal_alpha.py
+2783f0f75cf35c67133b35d282e70de53781a694a076c5058046ae3c5456c5d8  analysis/exchange_theory/alpha_run/analyze_alpha.py
+3634f98a0af571e0c73a6ee6a98735a376a0172bcf41b759ae82c43a5f040d67  analysis/exchange_theory/alpha_run/dryrun_alpha.py
+807b929162869f97089fde3dfc4a3bebea0e50ce9384bc7c4888cc46c4b9b7e8  analysis/exchange_theory/alpha_run/dryrun_alpha_output.txt
+133a4bd4cf7e5b3e130c31e53957dbf432037aa27dd17590e3e6dac11d6f5faa  analysis/exchange_theory/alpha_run/selftest_alpha.py
+5afaaf3fcfaf382cbd36cb39130292bc4fd5c0f3854763f2a43143930f22b8be  analysis/exchange_theory/alpha_run/guard_app.sh
+8ec5db74b2647253513b43453cf3c89431edde21b3da129846759c9ccf92e3ee  transfer/hprime/run_transfer.py
+=== billing record 2026-11-03T01:10:46Z modal billing summary --json: {"metered_cost":"0E-8","billed_cost":"0E-8","adjustments":{"plan_cost":"0E-8","credits":"-0E-8","network_egress_allowance":"0E-8","free_storage":"-0E-8","reservation_adjustment":"-0E-8"},"metered_cost_breakdown":{"network_egress":"0E-8","volumes":"0E-8","llm_tokens":"0E-8"}} ===
+2026-11-03T01:10:46Z
+=== EXECUTION RECORD 2026-11-02 (UTC 2026-11-03T01:11:28Z), appended after the hash lines; the hashed files are unchanged. Billing: the Modal web UI (workspace yidu0924, Starter plan, verified by the coordinator on 2026-11-02) shows "Credits $30.00" available for November; the CLI line credits=0 recorded above means "not yet applied", not "none left". Expected gross ~$50 for chain3 + alpha (alpha cap $15 of it), net ~$20 after the credit, with no guarantee that every charge is credited. Ledger caps unchanged: $20 + $20 + $15. Public timestamp repo created by the coordinator: https://github.com/yidu0924/e1-prereg, public=true, created_at 2026-11-03T01:08:14Z (2026-11-02 America/Detroit), empty at this time; the publication commit URL will be appended here as a further note line. ===

@@ -1,0 +1,23 @@
+=== chain3 FREEZE v0.4 (2026-10-07T08:16:52Z). PREREG_chain3 v0.4 / DESIGN v0.4 per review_24/25/26/27 (review_27 GO-to-freeze; E1 merged). Run index 6000-6115; per-phase Volume dirs /vol/c3p1, /vol/c3p2, cap $20/phase; launch with modal run --detach; interruption = arithmetic rule (PREREG section 4). K0(a) order: nm-le by full SHA -> public fork yidu0924/genetic-autoresearch branches chain3/<sha7> -> bundle. Synthetic dry run under the author's prior DGP: FWER 0.037 (SE 0.003). Written BEFORE any chain3 run: no chain3 data exists. ===
+4bef30e8e77bbe0b34ec5fa607c2f33e4ad297b757693b9d4a1aa3f5a2c6c3cd  transfer/chain3/PREREG_chain3.md
+bc9c9a9416528519bedc1d8ca278bc3a7081e056454df9e57f85c5f790ecc78d  transfer/chain3/DESIGN.md
+32a5b56ef10676a130c218c8e948c919b193be85841bad8fa2e43730a259b3b0  transfer/chain3/candidates.json
+5851ad686f8ba10fa4f383bb27cd5222b15a369c223e8a4e69cbb34da04db451  transfer/chain3/build_candidates.py
+f5e4b5a0b9e37c7543b0ec32e3bb0839787db2b693b0dcf427c64b6123171fc3  transfer/chain3/manifest_chain3.json
+560d71c615bc302f652720a0cdc0ebf275b3975ab667df3a1ac282df2cc529a3  transfer/chain3/manifest_chain3_p1.json
+ab666273a975aa1efcc45c19a76c545eee99e26ee5077e4fdb9fe34ba85f458a  transfer/chain3/manifest_chain3_p2.json
+acfffa401a7c7d4fa625d5270ef11ce67bf47d631bd3796802024ff0ffd67214  transfer/chain3/make_manifest_chain3.py
+f97f332ab55e4a601407fcf33bce17851446ddaf7f25d971a047d572a6620fad  transfer/chain3/analyze_chain3.py
+9477bd488a5e578e0281178bdfbddfc87eb793b6f1f5a2f3d243a8a6d6e08448  transfer/chain3/power_chain3.py
+7567b2c78cf7e72efa37ffa353296e0c3de1654e5edfc944dd6308415549e29c  transfer/chain3/dryrun_chain3.py
+56ba86a59ba36eaf7a75733eba77b08fb2f084452f3ea972bd1b4d84700629a5  transfer/chain3/dryrun_chain3_output.txt
+3c3c5516fe4dc0faf4378098945ee309bfa9e7f8319dac364158a4e2c8485944  transfer/chain3/prelaunch_check_chain3.py
+8ec5db74b2647253513b43453cf3c89431edde21b3da129846759c9ccf92e3ee  transfer/hprime/run_transfer.py
+5b9a2990f9fff360deeb2544b80674d10d15994d4104b23bc82f586369f14d1d  transfer/hprime/modal/modal_transfer.py
+b36568087c9c99adb788806cef7a5c47298709fb3751cc534fd81ad3072ca0f6  transfer/hprime/modal/selftest_cpu.py
+d293181e215a7cbaebbb0de07221b06a44dce0d07b81c80df036c66f01ec3f90  data/repos/forks/nm-le_gear6_chain3.bundle
+2026-10-07T08:16:52Z
+=== A1 SIGNED 2026-11-02 (America/Detroit; UTC 2026-11-03T01:10:46Z). User consent, verbatim, relayed by the Codex coordination message E1-LAUNCH-20261102 (not a handwritten signature): "同意，两项都跑，三个实验账本上限合计55美元，用新建公开 GitHub 仓库存证，完成预注册后发射，继续让 Fable max 推进。" Phase 1 cap $20 (~$17.7), phase 2 cap $20 (~$18.9; launched after phase 1 + blind K1-K4 without a further ask), self-paid; alpha cap $15 recorded in analysis/exchange_theory/alpha_run/FREEZE_LOG_alpha.txt. K0b per A1 = record only. Public timestamp: new public GitHub repo, candidate https://github.com/yidu0924/e1-prereg (commit URL + server timestamp to be appended here as a note line after publication). Written before any chain3 run: modal volume ls shows no /c3p1, /c3p2 (2026-11-02). ===
+42f3d9ae45c252dba943f7f9bcb3c794eb27715d739c9e5d1aaaec52e17406f2  transfer/chain3/AMENDMENT_A1.md
+=== K0b record 2026-11-03T01:10:46Z modal billing summary --json: {"metered_cost":"0E-8","billed_cost":"0E-8","adjustments":{"plan_cost":"0E-8","credits":"-0E-8","network_egress_allowance":"0E-8","free_storage":"-0E-8","reservation_adjustment":"-0E-8"},"metered_cost_breakdown":{"network_egress":"0E-8","volumes":"0E-8","llm_tokens":"0E-8"}} ===
+=== EXECUTION RECORD 2026-11-02 (UTC 2026-11-03T01:11:28Z), appended after the A1 hash line; A1 itself is unchanged. Billing: the Modal web UI (workspace yidu0924, Starter plan, verified by the coordinator on 2026-11-02) shows "Credits $30.00" available for November; the CLI line credits=0 recorded above means "not yet applied", not "none left". Expected gross ~$50 for chain3 + alpha, net ~$20 after the credit, with no guarantee that every charge is credited. Ledger caps unchanged: $20 + $20 + $15. Public timestamp repo created by the coordinator: https://github.com/yidu0924/e1-prereg, public=true, created_at 2026-11-03T01:08:14Z (2026-11-02 America/Detroit), empty at this time; the publication commit URL will be appended here as a further note line. ===
