@@ -21,6 +21,7 @@
 - `transfer/chain3/ADDENDUM_A2_h100strict.md`
 - `analysis/exchange_theory/PREREG_third_budget.md`
 - `analysis/exchange_theory/alpha_run/FREEZE_LOG_alpha.txt`
+- `analysis/exchange_theory/alpha_run/ALPHA_PREDICTION_2026-11-03.md`（2026-11-03 追加：α 实验结果与由 α̂ 导出的 chain3 §5b 斜率预期，写于读取任何 chain3 val 之前）
 - `analysis/exchange_theory/THEORY.md`
 再加本说明、`FILE_LIST.tsv`、`HASHES_sha256.txt`、`verify.sh`。
 
