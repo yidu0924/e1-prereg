@@ -1,0 +1,32 @@
+# Study 2 (chain3) unblinding: pre-registered result (public record)
+
+Written 2026-11-03 (UTC; exact times in `FREEZE_LOG_chain3.txt`) after both phases of chain3 had completed and after the alpha-derived expectation had been published (commit ddb6448d, 2026-11-03T04:10:24Z). Pre-registration: `transfer/chain3/PREREG_chain3.md` (frozen v0.4 on 2026-10-07; public timestamp commit a8bcbb38, 2026-11-03T01:13:46Z); execution addendum A2 (commit c1ae5eeb, 2026-11-03T01:23:27Z). Raw per-run results are not published; their hashes are recorded here. Nothing in the frozen analysis was changed.
+
+## Execution
+- Phase 1: app `ap-Jb8E1QeR47VfD6DQDwGQ7o` (strict-H100 execution copy, Addendum A2), one container (`GPU-dc3f49d4-68a0-e816-8946-757045b1f675`, NVIDIA H100 80GB HBM3, compute capability 9.0); 56/56 runs rc = 0 (run indices 6000–6055); ledger $17.3889 (cap $20). The first attempt (`ap-QUxyQlwufxbI0ldNCFYdIk`) was allocated an H200 by the provider and refused by the frozen runner before any training run ($0.53 kept in the same ledger).
+- Phase 2: app `ap-nMQE0yIsFwLKi0wlyNQ67K`, launched 2026-11-03T05:22:07Z by the orchestrator after the blind gates (K1/K2 OK, blind K4 THR 6 / SP 6, frozen pre-launch check READY); one container (`GPU-4a440a03-1413-a747-5adf-8dcdb12e2f0b`, NVIDIA H100 80GB HBM3); 60/60 runs rc = 0 (run indices 6056–6115); ledger $17.9900 (cap $20); stopped 2026-11-03T09:25Z.
+- No interruption, no cross-machine pair, no cap hit, no run dropped; both cost guards ended with "DONE/EXITED" and no alert. Seeds 301 and 302 in every (state, budget) cell; no attention-kernel fallback; peak memory below 76 GiB in every run.
+- Hashes (sha256): phase-1 `results.jsonl` `4cd21c03afc9314e84823d091d00b17abb8637da644df2b07d65e0e3cdc73fe9`; phase-2 `results.jsonl` `5b905019eb7e02786de6a55ac856d447b6f994f49503f226788b54a5001b4336`; concatenated `chain3_results.jsonl` (116 rows) `a487836c50f289656fd74e04cd51fc1576ce46a8ea5d17f4c70b2b0833961437`. Frozen analysis `analyze_chain3.py` `f97f332ab55e4a601407fcf33bce17851446ddaf7f25d971a047d572a6620fad` (unchanged since the freeze), run once at 2026-11-03T09:30:33Z with its default settings (B = 10,000; seeds 301, 302; 1,000 outer null data sets for the re-estimated false-positive rate); output `unblind_output.txt` `71c179dadf9ca5552da4293e83089c7f9b0dc9055d53062f19e391474e845dcf`.
+
+## Data checks printed by the frozen script
+K0(a): 0 commit/md5 mismatches, 116/116 cells complete. K1 (root state, seed 301): phase 1 871 / 378 steps, phase 2 868 / 380 steps against 876 / 382 ± 5%; compute capability 9.0; no fallback; validation window PASS in both phases. K2: no run above 76 GiB, no OOM. K3: estimated $16.90 / $18.05 ≤ $20 per phase. K4: phase 1 THR 6 / SP 6. `budget_seen` equals the budget in every run; no failed attempt; operational step checks (THR ≥ 15%, SP ≤ 3%): no failure. All 22 edits have two complete seeds.
+
+## Pre-registered primary result (pre-registered cell: ratio ≥ 2, robust null with spikes, Holm over two tests)
+| Test | Result |
+|---|---|
+| H1-R: one-sided Mann–Whitney on \|g\| of throughput-changing (THR) vs throughput-neutral (SP) edits | THR n = 10, median \|g\| = 0.01317 BPB; SP n = 10, median \|g\| = 0.00109 BPB; ratio **12.10** (keep-bootstrap 95% CI 7.26–23.21); U = 100; calibrated p = **0.0003** (textbook 0.0001); noise guard holds (median SE_g 0.00247); Holm-rejected → **PASS**. R0 (ratio ≥ 3, the Study-1 threshold) also PASS. |
+| H-dose: Spearman ρ between g and the measured log step ratio over 21 edits | ρ = **+0.914**; calibrated p = **0.0001** → **PASS** |
+| **Conclusion (frozen mapping, PREREG §5)** | **"magnitude replicated + dose mechanism confirmed"** |
+
+Sensitivity grid: all eight cells (ratio ≥ 2 / ≥ 3 × robust / plug-in null × Holm pair / H1-R alone) give PASS for H1-R and PASS for H-dose; no "fragile" label. Spike diagnostic: 0 spike state-arms (no seed range above 0.01 BPB).
+
+## Secondary H-exchange (frozen b = 0.0214 BPB per e-fold; ĝ = b · x)
+Main set (n = 21): out-of-sample weighted R² = +0.873; sign agreement 10/10 among edits with |x| ≥ ln 1.15 (binomial p 0.001); weighted least-squares slope of g on ĝ = **+1.48** (keep-bootstrap 95% CI **+1.09 to +1.59**). Headline: "calibrated transfer" (R² > 0, interval excludes 0 and contains 1) = **no**; "directional" (R² > 0, interval above 0) = **yes**. Edits with |g − ĝ| > 2 SE_g: 2, both in the search segment with the smallest seed noise (SE_g = 0.00048; the instability of that segment's σ was disclosed in PREREG §5). With the excluded micro-batch-switching edit included (n = 22): slope +1.47 (+1.01 to +1.53); that edit's residual z = −2.49, consistent with the pre-stated expectation |z| > 2 for it.
+
+## Comparison with the expectation published before unblinding
+Published (commit ddb6448d, 04:10 UTC, while phase 1 was running): expected slope 1.91 (1.79–2.02) at the measured exponent α̂ = 0.554; references 1.19 (α = 0.36, the exponent implied by Study 1) and 3.92 (α = 1). Observed: 1.48 (1.09–1.59). The observed interval contains 1.19 and excludes 1.91 and 3.92. By the reading rule written in `ALPHA_PREDICTION_2026-11-03.md`, the Study 2 slope does not favour the in-domain exponent: the one-parameter model with α̂ over-predicts the slope by about 30%. At the same time the frozen rate b = 0.0214 under-predicts the new edits' budget sensitivities by about one third: the through-origin dose slope in Study 2 is +0.0307 BPB per e-fold (keep-bootstrap 95% CI +0.0225 to +0.0380) against 0.0214 in Study 1.
+
+## Descriptive and robustness (report only, from the same output)
+H5 sign test on THR edits (sign of g = predicted sign): 10/10 (one-sided binomial p 0.001). Leave-one-edit-out: 21/21 same conclusion (H1-R p ≤ 0.0012). Leave-one-branch-out: 6/6 same conclusion (weakest H1-R p 0.0053). Dropping the three children of the shared root: PASS/PASS. Classification by measured steps: 0 edits change class. Guard 1.5×: PASS. Seed 303: not run. H-dose with predicted doses: ρ 0.80, PASS; on THR edits only: ρ 0.93, PASS. Operational-check failures: none. Design-stage plug-in null: PASS/PASS. Edits touching spike states: none. Family-wise false-positive rate of the complete decision rule, re-estimated from the fitted nuisance with spikes (1,000 outer × 1,000 inner null data sets): 0.027 (H1-R 0.003, H-dose 0.025) → the result is labelled "calibrated".
+
+Per-edit values (x, Δ at each budget, g, SE_g) will appear in the paper's appendix; they are derived statistics of the frozen output, not raw runs.
